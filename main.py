@@ -11,7 +11,7 @@ def main():
         page_title="LinkedIn Post Generator",
         page_icon="💼",
         layout="centered",
-        initial_sidebar_state="collapsed",
+        initial_sidebar_state="expanded",
     )
 
     # ---------- Custom CSS (LinkedIn blue theme) ----------
@@ -105,10 +105,46 @@ def main():
                 font-size: 1.1rem;
                 margin-bottom: 0.8rem;
             }
+
+            /* Sidebar */
+            section[data-testid="stSidebar"] {
+                background: linear-gradient(180deg, #0a66c2 0%, #004182 100%);
+            }
+            section[data-testid="stSidebar"] * {
+                color: white !important;
+            }
+            .sidebar-badge {
+                display: inline-block;
+                background: rgba(255, 255, 255, 0.15);
+                padding: 0.35rem 0.9rem;
+                border-radius: 999px;
+                font-size: 0.85rem;
+                font-weight: 600;
+                margin-top: 1rem;
+            }
         </style>
         """,
         unsafe_allow_html=True,
     )
+
+    # ---------- Sidebar ----------
+    with st.sidebar:
+        st.markdown("### 📄 About this app")
+        st.write(
+            "Pick a topic, length, and language, and this app will "
+            "generate a ready-to-share LinkedIn post using a few-shot "
+            "prompted language model."
+        )
+
+        st.markdown("---")
+        st.markdown("**Supported languages**")
+        st.markdown("- English\n- Hinglish")
+
+        st.markdown("---")
+        st.markdown(
+            '<div class="sidebar-badge">✨ Built by Rihaab Wadekar</div>',
+            unsafe_allow_html=True,
+        )
 
     # ---------- Hero header ----------
     st.markdown(
